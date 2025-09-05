@@ -1,0 +1,25 @@
+name: Auto Merge
+
+on:
+  push:
+    branches:
+      - "b.*"   
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Merge into main
+        run: |
+          git fetch origin main
+          git checkout main
+          git merge ${{ github.ref_name }} --no-edit
+          git push origin main
