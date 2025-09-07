@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Runner",
+            "program": "${workspaceFolder}/backend/node-modules.js",
+            "args": ["refresh"],      
+            "runtimeArgs": ["--nolazy"], 
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
+}
