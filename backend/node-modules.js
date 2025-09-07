@@ -9,19 +9,18 @@ async function runTask(category, action) {
     const client = new MongoClient(mongoDetails);
     await client.connect();
 
-  
+    //main database
+    const db = client.db("Manager");
 
-
-    const db = client.db("creates");
-   
-    console.log('collectinos', collections);
-    const commandDoc = await db.collection("runner").findOne({ id: 'node-modules' });
+    //fetching node-module document from create document
+    const commandDoc = await db.collection("create").findOne({ id: 'node-module' });
     
     if (!commandDoc) {
-        console.log("No command founddddd!");
+        console.log("No command found!");
         await client.close();
         return;
     }
+   
 
     // If modules are defined
     if (commandDoc.modules && commandDoc.modules.length > 0) {
