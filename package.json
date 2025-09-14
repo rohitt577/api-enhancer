@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "runner": "node ./backend/Installation/node-modules.js",
+    "dockerrun": "node ./backend/Installation/docker.js",
+    "docker:build": "docker build -t api-enhancer .",
+    "docker:run": "docker run -p 8000:8000 --env-file .env api-enhancer",
+    "docker:compose": "docker-compose up -d",
+    "docker:compose:local": "docker-compose --profile local-mongo up -d"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +23,7 @@
     "mongodb": "^6.19.0"
   },
   "bin": {
-    "runner": "./backend/node-modules.js",
+    "runner": "./backend/Installation/node-modules.js",
     "dockerrun": "./backend/Installation/docker.js"
   }
 }

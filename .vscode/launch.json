@@ -5,7 +5,7 @@
             "type": "node",
             "request": "launch",
             "name": "Debug Runner",
-            "program": "${workspaceFolder}/backend/node-modules.js",
+            "program": "${workspaceFolder}/server.js",
             "args": ["refresh"],      
             "runtimeArgs": ["--nolazy"], 
             "skipFiles": ["<node_internals>/**"]

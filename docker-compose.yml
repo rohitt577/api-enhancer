@@ -1,6 +1,7 @@
 services:
+  # Local MongoDB instance (optional - use this if you want to run MongoDB locally)
   mongo:
-    image: mongo:6.0
+    image: mongo:8.0
     container_name: mongo
     restart: always
     ports:
@@ -10,7 +11,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: admin
     volumes:
       - ./data:/data/db
+    profiles:
+      - local-mongo
 
+  # MongoDB Express for database management
   mongo-express:
     image: mongo-express
     container_name: mongo-express
@@ -24,3 +28,7 @@ services:
       ME_CONFIG_MONGODB_AUTH_DATABASE: admin
     depends_on:
       - mongo
+    profiles:
+      - local-mongo
+
+ 
