@@ -15,6 +15,7 @@
     "mongodb": "^6.19.0"
   },
   "bin": {
-    "runner": "./backend/node-modules.js"
+    "runner": "./backend/node-modules.js",
+    "dockerrun": "./backend/Installation/docker.js"
   }
 }
