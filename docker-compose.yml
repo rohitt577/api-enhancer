@@ -11,8 +11,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: admin
     volumes:
       - ./data:/data/db
-    profiles:
-      - local-mongo
+    
 
   # MongoDB Express for database management
   mongo-express:
@@ -28,7 +27,5 @@ services:
       ME_CONFIG_MONGODB_AUTH_DATABASE: admin
     depends_on:
       - mongo
-    profiles:
-      - local-mongo
-
+   
  

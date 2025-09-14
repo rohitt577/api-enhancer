@@ -11,7 +11,7 @@ let client;
 
 async function connectToMongoDB() {
   try {
-    const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017/Manager";
+    const mongoUri = process.env.MONGO_URI;
     client = new MongoClient(mongoUri);
     await client.connect();
     db = client.db("Manager");
